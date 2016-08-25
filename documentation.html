@@ -1,0 +1,136 @@
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <style>
+    .container-fluid {
+      padding: 0px;
+    }
+
+    .one {
+      color: #3498db;
+    }
+
+    .two {
+      color: #9b59b6;
+    }
+
+    .tree {
+      color: #2980b9;
+    }
+
+    .backcode {
+      background-color: #ecf0f1;
+    }
+
+    .example {
+      color: #bdc3c7;
+    }
+
+  </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+      <div class="navbar navbar-inverse navbar-custom" style="margin: 0px;">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><i class="fa fa-map" aria-hidden="true"></i> GTFS Leaflet Visualizer</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html"><i class="fa fa-map-o" aria-hidden="true"></i> Map</a></li>
+              <li><a href="plantrip.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Plan a Trip</a></li>
+              <li class="active"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-book" aria-hidden="true"></i> Documentation</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="jumbotron">
+          <h1>Getting started</h1>
+          <p>An overview of GTFS Leaflet Visualizer, how to download and use, basic templates and examples, and more.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="page-header">
+          <h1>Basic examples <small> and more</small></h1>
+          <span class="label label-warning">Versão Alpha</span>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading"><h4>Agencias <span class="badge">2</span></h4></div>
+          <div class="panel-body">
+            <p class="example">Example: </p>
+            <div class="panel panel-default">
+              <div class="panel-body backcode"><span class="one">Generator</span>.<span class="two">drawAgencyStop</span>(<span class="tree">data</span>);</div>
+            </div>
+            <p> Desenha um ponto no mapa, com a posição e nome da agência.</p>
+            <hr>
+            <p class="example">Example: </p>
+            <div class="panel panel-default">
+              <div class="panel-body backcode"><span class="one">Generator</span>.<span class="two">drawAgencyPopup</span>(<span class="tree">agency_name</span>, <span class="tree">agency_url</span>, <span class="tree">agency_timezone</span>, <span class="tree">agency_lang</span>);</div>
+            </div>
+            <p> Desenha um Popup no ponto, com as informações da agência.</p>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading"><h4>Rotas <span class="badge">4</span></h4></div>
+          <div class="panel-body">
+            <p class="example">Example: </p>
+            <div class="panel panel-default">
+              <div class="panel-body backcode"><span class="one">Generator</span>.<span class="two">drawRoutes</span>(<span class="tree">data</span>);</div>
+            </div>
+            <p> Gera no código HTML uma lista de rotas.</p>
+            <hr>
+            <p class="example">Example: </p>
+            <div class="panel panel-default">
+              <div class="panel-body backcode"><span class="one">Generator</span>.<span class="two">drawShapes</span>(<span class="tree">data</span>);</div>
+            </div>
+            <p> Desenha no mapa uma linha entre os pontos de shape.</p>
+            <hr>
+            <p class="example">Example: </p>
+            <div class="panel panel-default">
+              <div class="panel-body backcode"><span class="one">Generator</span>.<span class="two">drawStops</span>(<span class="tree">data</span>);</div>
+            </div>
+            <p> Desenha no mapa todos os pontos de parada de uma linha.</p>
+            <hr>
+            <p class="example">Example: </p>
+            <div class="panel panel-default">
+              <div class="panel-body backcode"><span class="one">Generator</span>.<span class="two">drawStopsPopup</span>(<span class="tree">stop_id</span>,<span class="tree">stop_name</span>,<span class="tree">stops_desc</span>);</div>
+            </div>
+            <p> Desenha o popup dos pontos de parada no mapa.</p>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading"><h4> <i class="fa fa-cogs" aria-hidden="true"></i> Plan a Trip <span class="badge">1</span> </h4></div>
+          <div class="panel-body">
+            <p class="example">Example: </p>
+            <div class="panel panel-default">
+              <div class="panel-body backcode"><span class="one">Generator</span>.<span class="two">drawStopsNear</span>(<span class="tree">data</span>);</div>
+            </div>
+            <p> Desenha os pontos próximos a uma latitude, longitude.</p>
+          </div>
+        </div>
+
+      </div>
+  </body>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</html>
