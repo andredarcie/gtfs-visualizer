@@ -41,7 +41,7 @@ var listaRotas = [];
 /* Metodos da classe Generator */
 
 // Desenha o ponto da agencia no mapa
-Generator.drawAgencyStop = function(data) {
+Generator.drawAgencyStop = function (data) {
 
     obj = JSON.parse(data);
 

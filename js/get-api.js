@@ -1,10 +1,14 @@
+var api_url = "http://127.0.0.1:8000/api/";
 var vez = 0;
-var url = "http://127.0.0.1:8000/api/agency?agency_id=SPTRANS";
-get(url, "agency");
+var url = api_url + "agency?agency_id=SPTRANS";
+get(url, Generator.drawAgencyStop);
 
-var url = "http://127.0.0.1:8000/api/routes?agency_id=SPTRANS";
-get(url, "routes");
+var url = api_url + "routes?agency_id=SPTRANS";
+get(url, Generator.drawRoutes);
 
+function teste(data){
+  console.log(data + "");
+}
 
 function get(url, type) {
     $.ajax({
@@ -18,8 +22,9 @@ function get(url, type) {
     });
 }
 
-function trataResultado(data, type) {
-
+function trataResultado(data, callback) {
+    callback(data);
+    /*
     switch (type) {
         case 'agency':
             Generator.drawAgencyStop(data);
@@ -43,6 +48,8 @@ function trataResultado(data, type) {
             test(data);
             break;
     }
+    */
+
 
 }
 
@@ -51,11 +58,11 @@ $("#rotas").click(function() {
     map.removeLayer(markers);
     markers = new L.FeatureGroup();
 
-    var url = "http://127.0.0.1:8000/api/shapes?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
-    get(url, "shapes");
+    url = api_url + "shapes?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
+    get(url, Generator.drawShapes);
 
-    url = "http://127.0.0.1:8000/api/stops?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
+    url = api_url + "stops?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
     console.log(url);
-    get(url, "stops");
+    get(url, Generator.drawStops);
 
 });
