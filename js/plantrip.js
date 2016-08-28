@@ -1,8 +1,8 @@
-
-
 var Plantrip = {};
 
-map.on('click', function (e) { Plantrip.eventClickMapa(e) });
+map.on('click', function(e) {
+    Plantrip.eventClickMapa(e);
+});
 
 // Criando camada para plantrip
 var planTripLayer = new L.FeatureGroup();
@@ -18,125 +18,129 @@ var url = "http://127.0.0.1:8124/api/agency";
 get(url, "agency");
 
 
-Plantrip.eventClickMapa  = function (e) {
+Plantrip.eventClickMapa = function(e) {
 
-  // Cria o marcador dinamico apartir do evento de click
-  var marcadorDinamico = e.latlng;
+    // Cria o marcador dinamico apartir do evento de click
+    var marcadorDinamico = e.latlng;
 
-  // Formata lat e lng para o padrão da API GTFS
-  var lat = e.latlng.lat.toFixed(6);
-  var lng = e.latlng.lng.toFixed(6);
+    // Formata lat e lng para o padrão da API GTFS
+    var lat = e.latlng.lat.toFixed(6);
+    var lng = e.latlng.lng.toFixed(6);
 
-  //Plantrip.getRotasProximas(lat, lng);
-
-
-
-  switch (estadoAtual){
-    case "partida":
-
-      var url = "http://127.0.0.1:8124/api/stopsnear?lat=" + lat + "&lon=" + lng + "&radius=1";
-      get(url, "stopsnear");
-
-      var marker = new L.marker(marcadorDinamico, { icon: partidaMarker }).bindPopup("<span>Partida</span>");
-
-      $("#from").val("Ponto de Partida");
-
-      planTripLayer.addLayer(marker);
-      map.addLayer(planTripLayer);
-
-      $(".plantrip-message").html("<strong>Info!</strong> Toque no mapa para escolher o ponto de chegada!");
-
-      estadoAtual = "chegada";
-
-    break;
-    case "chegada":
-
-      var marker = L.marker(marcadorDinamico, { icon: chegadaMarker }).bindPopup("<span>Chegada</span>");
-        $("#to").val("Ponto de Chegada");
+    //Plantrip.getRotasProximas(lat, lng);
 
 
-        planTripLayer.addLayer(marker);
-        map.addLayer(planTripLayer);
 
-        Plantrip.criaTrajeto();
+    switch (estadoAtual) {
+        case "partida":
 
-        $(".plantrip-message").html("<strong>Info!</strong> Toque novamente no mapa para reiniciar!");
+            var url = "http://127.0.0.1:8124/api/stopsnear?lat=" + lat + "&lon=" + lng + "&radius=1";
+            get(url, "stopsnear");
 
-        estadoAtual = "reiniciar";
-    break;
-    case "reiniciar":
+            var marker = new L.marker(marcadorDinamico, {
+                icon: partidaMarker
+            }).bindPopup("<span>Partida</span>");
 
-        bootbox.confirm("Are you sure?", function(result) {
+            $("#from").val("Ponto de Partida");
 
-          if (result == true){
+            planTripLayer.addLayer(marker);
+            map.addLayer(planTripLayer);
 
-            // Remove a layer que contem o ponto de partida e chegada
-            map.removeLayer(planTripLayer);
-            planTripLayer = new L.FeatureGroup();
+            $(".plantrip-message").html("<strong>Info!</strong> Toque no mapa para escolher o ponto de chegada!");
 
-            // Remove a layer que contem os pontos da linha
-            map.removeLayer(markers);
-            markers = new L.FeatureGroup();
+            estadoAtual = "chegada";
 
-            // Limpa o html
-            $("#melhoresLinhas").html("");
-            $("#from").val("");
-            $("#to").val("");
+            break;
+        case "chegada":
 
-            $(".plantrip-message").html("<strong>Info!</strong> Toque no mapa para escolher o ponto de partida!");
+            marker = L.marker(marcadorDinamico, {
+                icon: chegadaMarker
+            }).bindPopup("<span>Chegada</span>");
+            $("#to").val("Ponto de Chegada");
 
-            estadoAtual = "partida";
-          }
-        });
 
-    break;
-  }
-}
+            planTripLayer.addLayer(marker);
+            map.addLayer(planTripLayer);
 
-Plantrip.criaTrajeto = function () {
+            Plantrip.criaTrajeto();
 
-  var saida = "";
+            $(".plantrip-message").html("<strong>Info!</strong> Toque novamente no mapa para reiniciar!");
 
-  var nomeLinha = "Linha Exemplo";
-  //pontoEmbarque = "Rua Exemplo Embarque";
-  var pontoDesembarque = "Rua Exemplo Desembarque";
-  var pontoChegada = "Rua Exemplo Chegada";
-  var tarifaTotal = "11,11";
+            estadoAtual = "reiniciar";
+            break;
+        case "reiniciar":
 
-  var saida = "<tr><th>TRAJETO</th></tr>" +
-              "<tr> <td> 1. Caminhe até o ponto: <br> <span style='color: #2ecc71; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + pontoEmbarque + "</span>. </td> </tr>" +
-              "<tr> <td> 2. Pegue a Linha: " + nomeLinha + " </td> </tr>" +
-              "<tr> <td> Horarios. Linhas Alternativas </td> </tr>" +
-              "<tr> <td> Desembarque no ponto: <br> <span style='color: #e74c3c; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + pontoDesembarque + "</span>. </td> </tr>" +
-              "<tr> <td> Caminhe até a " + pontoChegada + " </td> </tr>" +
-              "<tr> <td> Tarifa Total: R$ " + tarifaTotal + " </td> </tr>";
+            bootbox.confirm("Are you sure?", function(result) {
 
-  $("#melhoresLinhas").html(saida);
-}
+                if (result === true) {
 
-Plantrip.getRotasProximas = function (lat, long) {
+                    // Remove a layer que contem o ponto de partida e chegada
+                    map.removeLayer(planTripLayer);
+                    planTripLayer = new L.FeatureGroup();
 
-  var url = "http://127.0.0.1:8124/api/distance?lat=" + lat + "&lon=" + long + "&radius=1";
+                    // Remove a layer que contem os pontos da linha
+                    map.removeLayer(markers);
+                    markers = new L.FeatureGroup();
 
-  console.log(url);
+                    // Limpa o html
+                    $("#melhoresLinhas").html("");
+                    $("#from").val("");
+                    $("#to").val("");
 
-  $.ajax({
-     url: url,
-     dataType: 'text',
-     crossDomain: true,
-     type: 'GET',
-     success: function (data) {
-       obj = JSON.parse(data);
+                    $(".plantrip-message").html("<strong>Info!</strong> Toque no mapa para escolher o ponto de partida!");
 
-       console.log("Melhores rotas: ");
-       var saida = "<tr><th>Melhores Linhas</th></tr>";
+                    estadoAtual = "partida";
+                }
+            });
 
-       for (var i = 0; i < 5; i++) {
-         var route_long_name = (typeof obj[i].route_long_name == "undefined") ? "" : obj[i].route_long_name;
-         saida += "<tr><td><span style='font-size: 12px'>" + obj[i].route_id + " <i class='fa fa-external-link' aria-hidden='true'></i> </span><p>" + route_long_name + "</p></td></tr>";
-         //console.log("> " + obj[i].route_long_name);
-       }
-       $("#melhoresLinhas").html(saida);
-     }
-   });
-}
+            break;
+    }
+};
+
+Plantrip.criaTrajeto = function() {
+
+    var saida = "";
+
+    var nomeLinha = "Linha Exemplo";
+    //pontoEmbarque = "Rua Exemplo Embarque";
+    var pontoDesembarque = "Rua Exemplo Desembarque";
+    var pontoChegada = "Rua Exemplo Chegada";
+    var tarifaTotal = "11,11";
+
+    saida = "<tr><th>TRAJETO</th></tr>" +
+        "<tr> <td> 1. Caminhe até o ponto: <br> <span style='color: #2ecc71; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + pontoEmbarque + "</span>. </td> </tr>" +
+        "<tr> <td> 2. Pegue a Linha: " + nomeLinha + " </td> </tr>" +
+        "<tr> <td> Horarios. Linhas Alternativas </td> </tr>" +
+        "<tr> <td> Desembarque no ponto: <br> <span style='color: #e74c3c; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + pontoDesembarque + "</span>. </td> </tr>" +
+        "<tr> <td> Caminhe até a " + pontoChegada + " </td> </tr>" +
+        "<tr> <td> Tarifa Total: R$ " + tarifaTotal + " </td> </tr>";
+
+    $("#melhoresLinhas").html(saida);
+};
+
+Plantrip.getRotasProximas = function(lat, long) {
+
+    var url = "http://127.0.0.1:8124/api/distance?lat=" + lat + "&lon=" + long + "&radius=1";
+
+    console.log(url);
+
+    $.ajax({
+        url: url,
+        dataType: 'text',
+        crossDomain: true,
+        type: 'GET',
+        success: function(data) {
+            obj = JSON.parse(data);
+
+            console.log("Melhores rotas: ");
+            var saida = "<tr><th>Melhores Linhas</th></tr>";
+
+            for (var i = 0; i < 5; i++) {
+                var route_long_name = (typeof obj[i].route_long_name == "undefined") ? "" : obj[i].route_long_name;
+                saida += "<tr><td><span style='font-size: 12px'>" + obj[i].route_id + " <i class='fa fa-external-link' aria-hidden='true'></i> </span><p>" + route_long_name + "</p></td></tr>";
+                //console.log("> " + obj[i].route_long_name);
+            }
+            $("#melhoresLinhas").html(saida);
+        }
+    });
+};
