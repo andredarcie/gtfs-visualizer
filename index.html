@@ -1,13 +1,8 @@
-<!doctype html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
-    <title>GTFS Visualizer</title>
-    <meta name="description" content="Data viewer for gtfs">
-
-    <!-- Vendor Cascading Style Sheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendor/css/leaflet/leaflet.css" />
@@ -15,15 +10,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendor/awesome-markers/leaflet.awesome-markers.css">
     <link rel="stylesheet" href="vendor/css/typeahead.css">
-    <link rel="stylesheet" href="vendor/css/easy-button.css">
-
-    <!-- GTFS Visualizer Cascading Style Sheets -->
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="vendor/css/easy-button.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -78,16 +68,22 @@
     </div>
 </body>
 
+<script src="vendor/js/leaflet.js"></script>
+<script src="vendor/js/leaflet-routing-machine.min.js"></script>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<!-- Leaftlet -->
-<script src="vendor/js/leaflet.js"></script>
-<script src="vendor/js/leaflet-routing-machine.min.js"></script>
 <script src="vendor/js/easy-button.js"></script>
+
 <script src="vendor/awesome-markers/leaflet.awesome-markers.min.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/get-api.js"></script>
+
+
+<script src="js/generator.js"></script>
 
 <!-- jQuery Typeahead  -->
 <script src="vendor/js/typeahead/bloodhound.min.js"></script>
@@ -95,9 +91,6 @@
 <script src="vendor/js/typeahead/typeahead.jquery.min.js"></script>
 <script src="js/typeahead-main.js"></script>
 
-<!-- GTFS Visualizer  -->
-<script src="js/icons.js"></script>
-<script src="js/get-api.js"></script>
-<script src="js/generator.js"></script>
+
 
 </html>
