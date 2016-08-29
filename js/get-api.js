@@ -54,15 +54,19 @@ function trataResultado(data, callback) {
 }
 
 $("#rotas").click(function() {
-
-    map.removeLayer(markers);
-    markers = new L.FeatureGroup();
-
-    url = api_url + "shapes?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
-    get(url, Generator.drawShapes);
-
-    url = api_url + "stops?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
-    console.log(url);
-    get(url, Generator.drawStops);
-
+  drawSelectedRoute();
 });
+
+function drawSelectedRoute() {
+
+  map.removeLayer(markers);
+  markers = new L.FeatureGroup();
+
+  url = api_url + "shapes?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
+  get(url, Generator.drawShapes);
+
+  url = api_url + "stops?agency_key=SPTRANS&route_id=" + $("#rotas option:selected").val() + "&direction_id=0";
+  console.log(url);
+  get(url, Generator.drawStops);
+
+}
