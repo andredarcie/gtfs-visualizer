@@ -6,10 +6,6 @@ get(url, Generator.drawAgencyStop);
 var url = api_url + "routes?agency_id=SPTRANS";
 get(url, Generator.drawRoutes);
 
-function teste(data){
-  console.log(data + "");
-}
-
 function get(url, type) {
     $.ajax({
         url: url,
