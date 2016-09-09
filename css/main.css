@@ -36,3 +36,27 @@ padding-right: 30px;
   font-size: 15px;
   padding-top: 5px;
 }
+
+.container-fluid {
+  padding: 0px;
+}
+
+.one {
+  color: #3498db;
+}
+
+.two {
+  color: #9b59b6;
+}
+
+.tree {
+  color: #2980b9;
+}
+
+.backcode {
+  background-color: #ecf0f1;
+}
+
+.example {
+  color: #bdc3c7;
+}
