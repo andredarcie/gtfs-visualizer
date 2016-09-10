@@ -8,7 +8,7 @@ Data viewer for gtfs
 | ![json-stops](img/readme/json-stops.PNG) | ![stops](img/readme/stops.PNG) |
 
 ## Functions
-### Agencys
+### Agencies
   - **Draw Agency Stop**: Draws a stop on the map, with the position and agency name.
 
   ```javascript
