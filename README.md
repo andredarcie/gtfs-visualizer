@@ -8,8 +8,7 @@ Data viewer for gtfs
 
 ## Functions
 ### Agencys
-  - **Draw Agency Stop**: Draws a point on the map, with the position and agency name.
-             
+  - **Draw Agency Stop**: Draws a point on the map, with the position and agency name.           
   ```javascript
     Generator.drawAgencyStop(data);
   ```
