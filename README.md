@@ -1,6 +1,8 @@
 # GTFS Visualizer
-======       
-Data viewer for gtfs
+
+*Data viewer for gtfs*
+
+Library responsible for generating HTML data based on the GTFS format.
 
 ## Example
 | Before        | After         |
