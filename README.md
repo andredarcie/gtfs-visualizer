@@ -10,6 +10,16 @@
 
   Read more about [here](https://developers.google.com/transit/gtfs/).
 
+## Getting started
+
+  Include the following javascript in your html
+  ```html
+  <script src="js/icons.js"></script>
+  <script src="js/generator.js"></script>
+  <script src="js/get-api.js"></script>
+  ```
+  *under construction*
+
 ## Library Functions
 ### Agencies
   - **Draw Agency Stop**: Draws a stop on the map, with the position and agency name.
