@@ -2,12 +2,13 @@
 
 *Data viewer for gtfs*
 
-Library responsible for generating HTML data based on the GTFS format.
+:bus: Library responsible for generating HTML data based on the GTFS format.
 
-## Example
-| Before        | After         |
-| ------------- |:-------------:|
-| ![json-stops](img/readme/json-stops.PNG) | ![stops](img/readme/stops.PNG) |
+## GTFS Overview
+
+  The General Transit Feed Specification (GTFS), also known as GTFS static or static transit to differentiate it from the GTFS realtime extension, defines a common format for public transportation schedules and associated geographic information. GTFS "feeds" let public transit agencies publish their transit data and developers write applications that consume that data in an interoperable way. *(from google developers)*
+
+  Read more about [here](https://developers.google.com/transit/gtfs/).
 
 ## Functions
 ### Agencies
@@ -36,5 +37,10 @@ Library responsible for generating HTML data based on the GTFS format.
     Generator.drawShapes(data);
   ```
 
+## Example
+
+  | Before        | After         |
+  | ------------- |:-------------:|
+  | ![json-stops](img/readme/json-stops.PNG) | ![stops](img/readme/stops.PNG) |
 
 ![GTFS Visualizer](img/gtfs-v.PNG)
