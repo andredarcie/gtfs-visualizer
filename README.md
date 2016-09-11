@@ -10,7 +10,7 @@
 
   Read more about [here](https://developers.google.com/transit/gtfs/).
 
-## Functions
+## Library Functions
 ### Agencies
   - **Draw Agency Stop**: Draws a stop on the map, with the position and agency name.
 
