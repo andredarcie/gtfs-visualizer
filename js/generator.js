@@ -137,10 +137,10 @@ Generator.drawStopsNear = function(data) {
 function test(data) {
     obj = JSON.parse(data);
 
-    var url = "http://127.0.0.1:8124/api/shapes?agency_key=SPTRANS&route_id=" + obj[0].route_id + "&direction_id=0";
-    get(url, "shapes");
+    //var url = "http://127.0.0.1:8124/api/shapes?agency_key=county-connection&route_id=" + obj[0].route_id + "&direction_id=0";
+    //get(url, "shapes");
 
-    url = "http://127.0.0.1:8124/api/stops?agency_key=SPTRANS&route_id=" + obj[0].route_id + "&direction_id=0";
+    url = "http://127.0.0.1:8124/api/stops?agency_key=county-connection&route_id=" + obj[0].route_id + "&direction_id=0";
     console.log(url);
     get(url, "stops");
 }
