@@ -88,7 +88,7 @@ Generator.drawRoutes = function(data) {
 
 };
 
-// Desenha uma linha entre os pontos de shape
+// Draws a line between the points of shape
 Generator.drawShapes = function(data) {
 
     obj = JSON.parse(data);
