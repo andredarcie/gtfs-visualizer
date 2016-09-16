@@ -1,4 +1,3 @@
-/* Variaveis globais */
 pontoEmbarque = "";
 // Iniciando o mapa
 var map = L.map('map', {
