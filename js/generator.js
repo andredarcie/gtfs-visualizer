@@ -53,7 +53,7 @@ Generator.drawAgencyStop = function (data) {
     map.setView(new L.LatLng(-23.543845, -46.631352), 10);
 };
 
-// Desenha o popup no ponto da agencia no mapa
+// Draws a popup on the stop, with the agency's information.
 Generator.drawAgencyPopup = function(agency_name, agency_url, agency_timezone, agency_lang) {
     var html = "";
 
