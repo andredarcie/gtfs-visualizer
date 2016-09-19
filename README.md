@@ -2,6 +2,9 @@
 
 *Data viewer for gtfs*
 
+[![CodeClimate](https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer/badges/gpa.svg)]
+(https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer)
+
 :bus: Library responsible for generating HTML data based on the GTFS format.
 
 ## GTFS Overview
