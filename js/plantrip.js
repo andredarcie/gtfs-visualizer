@@ -136,7 +136,7 @@ Plantrip.getRotasProximas = function(lat, long) {
             var saida = "<tr><th>Melhores Linhas</th></tr>";
 
             for (var i = 0; i < 5; i++) {
-                var route_long_name = (typeof obj[i].route_long_name == "undefined") ? "" : obj[i].route_long_name;
+                var route_long_name = (typeof obj[i].route_long_name === "undefined") ? "" : obj[i].route_long_name;
                 saida += "<tr><td><span style='font-size: 12px'>" + obj[i].route_id + " <i class='fa fa-external-link' aria-hidden='true'></i> </span><p>" + route_long_name + "</p></td></tr>";
                 //console.log("> " + obj[i].route_long_name);
             }
