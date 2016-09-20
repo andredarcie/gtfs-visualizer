@@ -22,7 +22,7 @@ L.easyButton({
     states: [{ // specify different icons and responses for your button
         stateName: 'get-center',
         onClick: function(button, map) {
-            alert('Map is centered at: ' + map.getCenter().toString());
+            sweetAlert('Map is centered at: ', '' + map.getCenter().toString());
         },
         title: 'show me the middle',
         icon: 'fa-crosshairs'
