@@ -161,7 +161,7 @@ Generator.drawStops = function(data) {
 
 };
 
-// Desenha o popup dos pontos de parada no mapa
+// Draws the pop-up stopping points on the map
 Generator.drawStopsPopup = function(stop_id, stop_name, stops_desc) {
     var html = "";
 
