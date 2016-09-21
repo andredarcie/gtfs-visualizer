@@ -144,7 +144,7 @@ function test(data) {
     get(url, "stops");
 }
 
-// Desenha o pontos de parada no mapa
+// Draw stops on map
 Generator.drawStops = function(data) {
 
     obj = JSON.parse(data);
