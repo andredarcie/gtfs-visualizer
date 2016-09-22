@@ -4,7 +4,7 @@ var agency_id = "county-connection";
 var url = api_url + "agency?agency_id=" + agency_id;
 get(url, Generator.drawAgencyStop);
 
-var url = api_url + "routes?agency_id=" + agency_id;
+url = api_url + "routes?agency_id=" + agency_id;
 get(url, Generator.drawRoutes);
 
 function get(url, type) {
