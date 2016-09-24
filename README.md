@@ -74,4 +74,4 @@
   ```
 
 ## Result of use
-![GTFS Visualizer](img/gtfs-v.PNG)
+![GTFS Visualizer](img/readme/gtfs-v.PNG)
