@@ -15,11 +15,17 @@
 
   Include the following javascript in your html
   ```html
+  <!-- Custom Icons for Gtfs Visualizer  -->
   <script src="js/icons.js"></script>
+
+  <!-- Gtfs Visualizer  -->
   <script src="js/generator.js"></script>
   <script src="js/get-api.js"></script>
+  <script src="js/main.js"></script>
   ```
-  *under construction*
+
+  This example depends on [Bootstrap](http://getbootstrap.com/), [jQuery](http://jquery.com/),
+  [Leaflet](http://leafletjs.com/) and [typeahead](https://twitter.github.io/typeahead.js/).
 
 ## Library Functions
 ### Agencies
