@@ -74,7 +74,7 @@ Generator.drawRoutesList = function(data) {
 
         var route_name = obj[x].route_short_name + ": " + obj[x].route_long_name;
 
-        $("#rotas").append("<option value='" + obj[x].route_id + "'>" + route_name + "</option>");
+        $("#routes").append("<option value='" + obj[x].route_id + "'>" + route_name + "</option>");
 
         // Coloca as rotas em uma lista, para ser usada no typeahead
         listaRotas.push(route_name);

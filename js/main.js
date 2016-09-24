@@ -19,9 +19,9 @@ function start(){
 
 }
 
-$("#rotas").change(function() {
+$("#routes").change(function() {
 
-  var route_id = $("#rotas option:selected").val();
+  var route_id = $("#routes option:selected").val();
   drawSelectedRoute(route_id);
 
 });
