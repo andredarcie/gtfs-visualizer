@@ -66,9 +66,12 @@
   ```
   ![Shapes](img/readme/functions/stop-popup.PNG)
 
-## Example
-| Before        | After         |
-| ------------- |:-------------:|
-| ![json-stops](img/readme/json-stops.PNG) | ![stops](img/readme/stops.PNG) |
+### Plan a Trip
+  - **Draw Stops Near**: Draw the stops near of other stop.
 
+  ```javascript
+    Generator.drawStopsNear(data);
+  ```
+
+## Result of use
 ![GTFS Visualizer](img/gtfs-v.PNG)
