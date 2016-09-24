@@ -35,6 +35,7 @@
   ```javascript
     Generator.drawAgencyPopup(data);
   ```
+  ![Agency Stop](img/readme/functions/agency-popup.PNG)
 
 ### Routes
   - **Draw Routes**: Generates the HTML code a list of routes.
