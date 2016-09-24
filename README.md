@@ -28,6 +28,7 @@
   ```javascript
     Generator.drawAgencyStop(data);
   ```
+  ![Agency Stop](img/readme/functions/agency-stop.PNG)
 
   - **Draw Agency Popup**: Draws a popup on the stop, with the agency's information.
 
