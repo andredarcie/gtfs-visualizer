@@ -19,7 +19,7 @@ function start(){
 
 }
 
-$("#rotas").click(function() {
+$("#rotas").change(function() {
   drawSelectedRoute();
 });
 
