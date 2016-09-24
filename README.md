@@ -50,7 +50,21 @@
   ```javascript
     Generator.drawShapes(data);
   ```
-  ![Shapes](img/readme/functions/shapes.PNG)
+  ![Shapes](img/readme/functions/shapes.PNG)  
+
+  - **Draw Stops**: Draws on the map all the stops in a route.
+
+  ```javascript
+    Generator.drawStops(data);
+  ```
+  ![Shapes](img/readme/functions/stops.PNG)   
+
+  - **Draw Stops Popup**: Draws a popup on the stop, with the stop information.
+
+  ```javascript
+    Generator.drawStopsPopup(stop_id,stop_name,stops_desc);
+  ```
+  ![Shapes](img/readme/functions/stop-popup.PNG)
 
 ## Example
 | Before        | After         |

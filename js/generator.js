@@ -165,7 +165,7 @@ Generator.drawStops = function(data) {
 Generator.drawStopsPopup = function(stop_id, stop_name, stops_desc) {
     var html = "";
 
-    html += "<div style='margin: 0px; padding: 0px;'><span>" + stop_id + "</span>" +
+    html += "<div style='margin: 0px; padding: 0px;'>" +
         "<h3 style='background-color: #3498db; color: white; padding: 1px;'>" + stop_name + "</h3>" +
         "<p>" + stops_desc + "</p></div>";
 
