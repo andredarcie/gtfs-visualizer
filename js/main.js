@@ -15,7 +15,7 @@ function start(){
   getApi(url, Generator.drawAgencyStop);
 
   url = api_url + "routes?agency_id=" + agency_id;
-  getApi(url, Generator.drawRoutes);
+  getApi(url, Generator.drawRoutesList);
 
 }
 

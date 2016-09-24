@@ -66,7 +66,7 @@ Generator.drawAgencyPopup = function(agency_name, agency_url, agency_timezone, a
 };
 
 // Generates the HTML code a list of routes
-Generator.drawRoutes = function(data) {
+Generator.drawRoutesList = function(data) {
 
     obj = JSON.parse(data);
 
