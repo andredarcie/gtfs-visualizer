@@ -32,15 +32,7 @@ $('#the-basics .typeahead').typeahead({
 $('.typeahead').on('typeahead:selected', function(evt, item) {
 
     var subString = item.split(":");
-    //alert(subString[0]);
+    var route_id = subString[0];
 
-    map.removeLayer(markers);
-    markers = new L.FeatureGroup();
-
-    var url = "http://127.0.0.1:8124/api/shapes?agency_key=SPTRANS&route_id=" + subString[0] + "&direction_id=0";
-    get(url, "shapes");
-
-    url = "http://127.0.0.1:8124/api/stops?agency_key=SPTRANS&route_id=" + subString[0] + "&direction_id=0";
-    console.log(url);
-    get(url, "stops");
+    drawSelectedRoute(route_id);
 });

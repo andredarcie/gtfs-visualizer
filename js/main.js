@@ -20,14 +20,16 @@ function start(){
 }
 
 $("#rotas").change(function() {
-  drawSelectedRoute();
+
+  var route_id = $("#rotas option:selected").val();
+  drawSelectedRoute(route_id);
+
 });
 
-function drawSelectedRoute() {
+function drawSelectedRoute(route_id) {
 
   var api_url = settings.api_url;
   var agency_id = settings.agency_id;
-  var route_id = $("#rotas option:selected").val();
   var direction_id = "0";
   var url = "";
 
