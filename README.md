@@ -50,6 +50,7 @@
   ```javascript
     Generator.drawShapes(data);
   ```
+  ![Shapes](img/readme/functions/shapes.PNG)
 
 ## Example
 | Before        | After         |
