@@ -35,14 +35,15 @@
   ```javascript
     Generator.drawAgencyPopup(data);
   ```
-  ![Agency Stop](img/readme/functions/agency-popup.PNG)
+  ![Agency Popup](img/readme/functions/agency-popup.PNG)
 
 ### Routes
-  - **Draw Routes**: Generates the HTML code a list of routes.
+  - **Draw Routes List**: Generates the HTML code a list of routes.
 
   ```javascript
-    Generator.drawRoutes(data);
+    Generator.drawRoutesList(data);
   ```
+  ![Routes List](img/readme/functions/routes-list.PNG)
 
   - **Draw Shapes**: Draws on the map a line between the points of shape.
 
