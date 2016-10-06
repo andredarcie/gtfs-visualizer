@@ -1,0 +1,25 @@
+{
+  "name": "gtfs-visualizer",
+  "version": "1.0.0",
+  "description": "data viewer for gtfs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreNDarcie/gtfs-visualizer.git"
+  },
+  "author": "andrendarcie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreNDarcie/gtfs-visualizer/issues"
+  },
+  "homepage": "https://github.com/AndreNDarcie/gtfs-visualizer#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0"
+  }
+}
