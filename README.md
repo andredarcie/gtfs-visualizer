@@ -85,5 +85,5 @@
     Generator.drawStopsNear(data);
   ```
 
-## Result of use
+## Result
 ![GTFS Visualizer](img/readme/gtfs-v.PNG)
