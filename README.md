@@ -87,3 +87,6 @@
 
 ## Result
 ![GTFS Visualizer](img/readme/gtfs-v.PNG)
+
+## License
+The gtfs-visualizer is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
