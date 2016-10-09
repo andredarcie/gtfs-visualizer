@@ -18,7 +18,17 @@
     git clone git@github.com:AndreNDarcie/gtfs-visualizer.git
 
     cd gtfs-visualizer
-
+    
+  Gulp task runner
+    
+    npm install
+    
+    // Run gulp:
+    gulp
+    
+    // To run individual tasks:
+    gulp <task> <othertask>
+  
   Include the following javascript in your html
   ```html
   <!-- Custom Icons for Gtfs Visualizer  -->
@@ -31,7 +41,7 @@
   ```
 
   This example depends on [Bootstrap](http://getbootstrap.com/), [jQuery](http://jquery.com/),
-  [Leaflet](http://leafletjs.com/) and [typeahead](https://twitter.github.io/typeahead.js/).
+  [Leaflet](http://leafletjs.com/), [typeahead](https://twitter.github.io/typeahead.js/) and [Gulp](http://gulpjs.com/).
 
 ## Library Functions
 ### Agencies
