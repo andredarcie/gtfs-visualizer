@@ -8,7 +8,7 @@ html, body {
 }
 
 .container-fluid {
-  padding: 0px;
+  padding: 0;
 }
 
 .form-control {
@@ -23,13 +23,13 @@ padding-right: 30px;
 
 .menu-principal {
   padding: 10px;
-  margin: 0px;
+  margin: 0;
   position: fixed;
-  left:0px;
-  top:0px;
+  left:0;
+  top:0;
   z-index: 1000;
-  margin: 0px;
-  padding: 0px
+  margin: 0;
+  padding: 0;
 }
 
 #id-for-the-button{
@@ -38,7 +38,7 @@ padding-right: 30px;
 }
 
 .container-fluid {
-  padding: 0px;
+  padding: 0;
 }
 
 .one {
