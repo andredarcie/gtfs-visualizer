@@ -128,32 +128,55 @@ Generator.drawStopsNear = function(data) {
     map.addLayer(markers);
     */
     pontoEmbarque = obj[0].stop_name;
-    var url = "http://127.0.0.1:8124/api/routesbystop?stop_id=" + obj[0].stop_id;
+    settings.boarding_stop = obj[0].stop_name;
+    boarding_stop_id = obj[0].stop_id;
+
+    var url = "http://127.0.0.1:8000/api/routesbystop?agency_id=SPTRANS&stop_id=" + obj[0].stop_id;
     console.log(url);
-    get(url, "test");
+    getApi(url, test);
 };
 
 function test(data) {
     obj = JSON.parse(data);
-
+    console.log(obj);
     //var url = "http://127.0.0.1:8124/api/shapes?agency_key=county-connection&route_id=" + obj[0].route_id + "&direction_id=0";
     //get(url, "shapes");
-
-    url = "http://127.0.0.1:8124/api/stops?agency_key=county-connection&route_id=" + obj[0].route_id + "&direction_id=0";
+    url = "http://127.0.0.1:8000/api/stops?agency_key=SPTRANS&route_id=" + obj[0].route_id + "&direction_id=0";
     console.log(url);
-    get(url, "stops");
+    //get(url, "stops");
+    getApi(url, Generator.drawStops);
 }
 
 // Draw stops on map
 Generator.drawStops = function(data) {
 
+    var marker;
+    var stop_name;
+    var stop_id;
+    var boarding_stop;
+    var landing_stop;
+
     obj = JSON.parse(data);
 
     for (var y = 0; y < obj.length; y++) {
-        var marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
+      stop_name = obj[y].stop_name;
+      boarding_stop = settings.boarding_stop;
+
+      //console.log("Nome do stop atual: " + stop_name);
+      console.log("Nome do boarding stop: " + boarding_stop);
+      if (stop_name !== boarding_stop){
+        marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
             icon: redMarker
         }).bindPopup(Generator.drawStopsPopup(obj[y].stop_id, obj[y].stop_name, obj[y].stop_desc));
-        markers.addLayer(marker);
+      } else {
+        console.log("FOI IGUAL");
+        marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
+            icon: boardingMarker
+        }).bindPopup(Generator.drawStopsPopup(obj[y].stop_id, obj[y].stop_name, obj[y].stop_desc));
+        $("#melhoresLinhas").html(boarding_stop);
+      }
+
+      markers.addLayer(marker);
 
     }
 
@@ -171,4 +194,8 @@ Generator.drawStopsPopup = function(stop_id, stop_name, stops_desc) {
 
     return html;
 
+};
+
+Generator.print = function() {
+  console.log("Print");
 };

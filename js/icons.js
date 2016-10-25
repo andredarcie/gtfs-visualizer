@@ -15,6 +15,18 @@ var redMarker = L.AwesomeMarkers.icon({
     prefix: 'fa'
 });
 
+var boardingMarker = L.AwesomeMarkers.icon({
+    icon: 'bus',
+    markerColor: 'green',
+    prefix: 'fa'
+});
+
+var landingMarker = L.AwesomeMarkers.icon({
+    icon: 'bus',
+    markerColor: 'red',
+    prefix: 'fa'
+});
+
 var agencyMarker = L.AwesomeMarkers.icon({
     icon: 'university',
     markerColor: 'orange',

@@ -1,3 +1,8 @@
+var settings = {
+    api_url: "http://127.0.0.1:8000/api/",
+    agency_id: "SPTRANS"
+};
+
 var Plantrip = {};
 
 map.on('click', function(e) {
@@ -15,8 +20,21 @@ $(".plantrip-message").html("<strong>Info!</strong> Toque no mapa para escolher 
 
 var vez = 0;
 var url = "http://127.0.0.1:8124/api/agency";
-get(url, "agency");
+//get(url, "agency");
 
+startPlanTrip();
+
+function startPlanTrip() {
+
+    var api_url = settings.api_url;
+    var agency_id = settings.agency_id;
+    var url = "";
+
+    // Draw the agency stop on map
+    url = api_url + "agency?agency_id=" + agency_id;
+    getApi(url, Generator.drawAgencyStop);
+
+}
 
 Plantrip.eventClickMapa = function(e) {
 
@@ -29,13 +47,12 @@ Plantrip.eventClickMapa = function(e) {
 
     //Plantrip.getRotasProximas(lat, lng);
 
-
-
     switch (estadoAtual) {
         case "partida":
 
-            var url = "http://127.0.0.1:8124/api/stopsnear?lat=" + lat + "&lon=" + lng + "&radius=1";
-            get(url, "stopsnear");
+            var url = "http://127.0.0.1:8000/api/stopsnear?lat=" + lat + "&lon=" + lng + "&radius=1";
+            //get(url, "stopsnear");
+            getApi(url, Generator.drawStopsNear);
 
             var marker = new L.marker(marcadorDinamico, {
                 icon: partidaMarker
@@ -48,8 +65,9 @@ Plantrip.eventClickMapa = function(e) {
 
             $(".plantrip-message").html("<strong>Info!</strong> Toque no mapa para escolher o ponto de chegada!");
 
-            estadoAtual = "chegada";
-
+            //estadoAtual = "chegada";
+            estadoAtual = "reiniciar";
+            Plantrip.criaTrajeto();
             break;
         case "chegada":
 
@@ -103,24 +121,33 @@ Plantrip.criaTrajeto = function() {
 
     var nomeLinha = "Linha Exemplo";
     //pontoEmbarque = "Rua Exemplo Embarque";
+    var boarding_stop = settings.boarding_stop;
     var pontoDesembarque = "Rua Exemplo Desembarque";
     var pontoChegada = "Rua Exemplo Chegada";
     var tarifaTotal = "11,11";
 
+    /*
     saida = "<tr><th>TRAJETO</th></tr>" +
-        "<tr> <td> 1. Caminhe até o ponto: <br> <span style='color: #2ecc71; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + pontoEmbarque + "</span>. </td> </tr>" +
+        "<tr> <td> 1. Caminhe até o ponto: <br> <span style='color: #2ecc71; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + boarding_stop + "</span>. </td> </tr>" +
         "<tr> <td> 2. Pegue a Linha: " + nomeLinha + " </td> </tr>" +
         "<tr> <td> Horarios. Linhas Alternativas </td> </tr>" +
         "<tr> <td> Desembarque no ponto: <br> <span style='color: #e74c3c; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + pontoDesembarque + "</span>. </td> </tr>" +
         "<tr> <td> Caminhe até a " + pontoChegada + " </td> </tr>" +
         "<tr> <td> Tarifa Total: R$ " + tarifaTotal + " </td> </tr>";
+     */
+     
+     saida = "<tr><th>TRAJETO</th></tr>" +
+         "<tr> <td> 1. Caminhe até o ponto: <br> <span style='color: #2ecc71; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + boarding_stop + "</span>. </td> </tr>" +
+         "<tr> <td> 2. Pegue a Linha: " + nomeLinha + " </td> </tr>";
+
+    console.log("Boarding_stop: " + settings.boarding_stop);
 
     $("#melhoresLinhas").html(saida);
 };
 
 Plantrip.getRotasProximas = function(lat, long) {
 
-    var url = "http://127.0.0.1:8124/api/distance?lat=" + lat + "&lon=" + long + "&radius=1";
+    var url = "http://127.0.0.1:8000/api/routesByDistance?lat=" + lat + "&lon=" + long + "&radius=1";
 
     console.log(url);
 
