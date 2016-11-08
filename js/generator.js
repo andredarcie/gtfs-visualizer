@@ -157,28 +157,14 @@ Generator.drawStops = function(data) {
     var marker;
     var stop_name;
     var stop_id;
-    var boarding_stop;
-    var landing_stop;
 
     obj = JSON.parse(data);
 
     for (var y = 0; y < obj.length; y++) {
-      stop_name = obj[y].stop_name;
-      boarding_stop = settings.boarding_stop;
 
-      //console.log("Nome do stop atual: " + stop_name);
-      //console.log("Nome do boarding stop: " + boarding_stop);
-      if (stop_name !== boarding_stop){
-        marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
-            icon: redMarker
-        }).bindPopup(Generator.drawStopsPopup(obj[y].stop_id, obj[y].stop_name, obj[y].stop_desc));
-      } else {
-        console.log("FOI IGUAL");
-        marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
-            icon: boardingMarker
-        }).bindPopup(Generator.drawStopsPopup(obj[y].stop_id, obj[y].stop_name, obj[y].stop_desc));
-        $("#melhoresLinhas").html(boarding_stop);
-      }
+      marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
+          icon: redMarker
+      }).bindPopup(Generator.drawStopsPopup(obj[y].stop_id, obj[y].stop_name, obj[y].stop_desc));
 
       markers.addLayer(marker);
 
