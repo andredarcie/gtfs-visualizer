@@ -90,29 +90,33 @@ Generator.drawRoutesList = function(data) {
 // Draws a line between the points of shape
 Generator.drawShapes = function(data) {
 
-    obj = JSON.parse(data);
+    var obj = JSON.parse(data);
 
-    var latlngs = Array();
+    // Check if shape points exists
+    if(!(obj[0] === undefined || obj[0] === null)){
+      var latlngs = Array();
 
-    for (var y = 0; y < obj[0].length; y++) {
-        var marker = L.marker([obj[0][y].shape_pt_lat, obj[0][y].shape_pt_lon], {
-            icon: greenIcon
-        });
-        //markers.addLayer(marker);
-        latlngs.push(marker.getLatLng());
+      for (var y = 0; y < obj[0].length; y++) {
+          var marker = L.marker([obj[0][y].shape_pt_lat, obj[0][y].shape_pt_lon], {
+              icon: greenIcon
+          });
+          //markers.addLayer(marker);
+          latlngs.push(marker.getLatLng());
+      }
+
+      //map.addLayer(markers);
+
+      // create a polyline from an arrays of LatLng points
+      var polyline = L.polyline(latlngs, {
+          color: '#3498db'
+      }).addTo(map);
+      markers.addLayer(polyline);
+      map.addLayer(markers);
+      // zoom the map to the polyline
+      map.fitBounds(polyline.getBounds());
+      map.setZoom(10);
+
     }
-
-    //map.addLayer(markers);
-
-    // create a polyline from an arrays of LatLng points
-    var polyline = L.polyline(latlngs, {
-        color: '#3498db'
-    }).addTo(map);
-    markers.addLayer(polyline);
-    map.addLayer(markers);
-    // zoom the map to the polyline
-    map.fitBounds(polyline.getBounds());
-    map.setZoom(10);
 };
 
 Generator.drawStopsNear = function(data) {
@@ -163,7 +167,7 @@ Generator.drawStops = function(data) {
       boarding_stop = settings.boarding_stop;
 
       //console.log("Nome do stop atual: " + stop_name);
-      console.log("Nome do boarding stop: " + boarding_stop);
+      //console.log("Nome do boarding stop: " + boarding_stop);
       if (stop_name !== boarding_stop){
         marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
             icon: redMarker
