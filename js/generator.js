@@ -44,13 +44,13 @@ Generator.drawAgencyStop = function (data) {
 
     obj = JSON.parse(data);
 
-    L.marker([-23.543845, -46.631352], {
+    L.marker([37.972117, -122.032526], {
             icon: agencyMarker
         }).addTo(map)
         .bindPopup(Generator.drawAgencyPopup(obj.agency_name, obj.agency_url, obj.agency_timezone, obj.agency_lang))
         .openPopup();
 
-    map.setView(new L.LatLng(-23.543845, -46.631352), 10);
+    map.setView(new L.LatLng(37.972117, -122.032526), 10);
 };
 
 // Draws a popup on the stop, with the agency's information.
