@@ -9,24 +9,8 @@ L.control.zoom({
 }).addTo(map);
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-var helloPopup = L.popup().setContent('Hello World!');
-
-L.easyButton({
-    id: 'id-for-the-button', // an id for the generated button
-    position: 'bottomright', // inherited from L.Control -- the corner it goes in
-    type: 'replace', // set to animate when you're comfy with css
-    leafletClasses: true, // use leaflet classes to style the button?
-    states: [{ // specify different icons and responses for your button
-        stateName: 'get-center',
-        onClick: function(button, map) {
-            alert('Map is centered at: ' + map.getCenter().toString());
-        },
-        title: 'show me the middle',
-        icon: 'fa-crosshairs'
-    }]
+    attribution: '&copy; ' +
+      '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 // Criando camada para desenhar no mapa
