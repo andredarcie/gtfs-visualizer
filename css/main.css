@@ -72,3 +72,16 @@ padding-right: 30px;
   color: white;
   padding: 1px;
 }
+
+/* Agency Popup */
+.agency-title {
+  font-size: 15px;
+  color: orange;
+  text-align: center;
+}
+
+p.agency-desc {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}

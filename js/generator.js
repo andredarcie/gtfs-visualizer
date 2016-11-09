@@ -53,13 +53,27 @@ Generator.drawAgencyStop = function(data) {
     map.setView(new L.LatLng(37.972117, -122.032526), 10);
 };
 
-// Draws a popup on the stop, with the agency's information.
-Generator.drawAgencyPopup = function(agency_name, agency_url, agency_timezone, agency_lang) {
+/* Draws a popup on the stop, with the agency's information. */
+Generator.drawAgencyPopup = function(agency_name, agency_url, agency_timezone,
+                                                               agency_lang) {
+
     var html = "";
 
-    html += "<h1 style='font-size: 15px; color: orange; text-align: center'><i class='fa fa-university' aria-hidden='true'></i> " + agency_name + "</h1>" +
-        "<p style='padding: 1px; margin: 0; text-align: center'><a href='" + agency_url + "'>Visit Agency!</a></p>" +
-        "<p style='padding: 1px; margin: 0; text-align: center'>" + agency_timezone + " - " + agency_lang + "</p></div>";
+    html += "<div>" +
+              "<h1 class='agency-title'>" +
+                "<i class='fa fa-university' aria-hidden='true'></i> " +
+                  agency_name +
+               "</h1>" +
+              "<p class='agency-desc'>" +
+               "<a target='_blank' href='" + agency_url + "'>" +
+                "Visit Agency!" +
+               "</a>" +
+              "</p>" +
+              "<p class='agency-desc'>" +
+                agency_timezone + " - " +
+                agency_lang +
+              "</p>" +
+            "</div>";
 
     return html;
 
