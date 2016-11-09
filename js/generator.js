@@ -31,7 +31,10 @@ Generator.drawAgencyStop = function(data) {
     L.marker([37.972117, -122.032526], {
             icon: agencyMarker
         }).addTo(map)
-        .bindPopup(Generator.drawAgencyPopup(obj.agency_name, obj.agency_url, obj.agency_timezone, obj.agency_lang))
+        .bindPopup(Generator.drawAgencyPopup(obj.agency_name,
+                                             obj.agency_url,
+                                             obj.agency_timezone,
+                                             obj.agency_lang))
         .openPopup();
 
     map.setView(new L.LatLng(37.972117, -122.032526), 10);
@@ -98,7 +101,8 @@ Generator.drawShapes = function(data) {
         var latlngs = Array();
 
         for (var y = 0; y < obj[0].length; y++) {
-            var marker = L.marker([obj[0][y].shape_pt_lat, obj[0][y].shape_pt_lon], {
+            var marker = L.marker([obj[0][y].shape_pt_lat,
+                                   obj[0][y].shape_pt_lon], {
                 icon: greenIcon
             });
             //markers.addLayer(marker);
