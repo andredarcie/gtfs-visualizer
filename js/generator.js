@@ -79,26 +79,29 @@ Generator.drawAgencyPopup = function(agency_name, agency_url, agency_timezone,
 
 };
 
-// Generates the HTML code a list of routes
-Generator.drawRoutesList = function(data) {
+/* Generates the HTML code a list of routes */
+Generator.drawRoutesList = function(routeListData) {
 
-    obj = JSON.parse(data);
+    var routeList, routeListLength, route, html, routeName;
 
-    for (var x = 0; x < obj.length; x++) {
+    routeList = JSON.parse(routeListData);
+    routeListLength = routeList.length;
 
-        var route_name = obj[x].route_short_name + ": " + obj[x].route_long_name;
+    for (var i = 0; i < routeListLength; i++) {
 
-        $("#routes").append("<option value='" + obj[x].route_id + "'>" + route_name + "</option>");
+        route = routeList[i];
+        routeName = route.route_short_name + ": " + route.route_long_name;
 
-        // Coloca as rotas em uma lista, para ser usada no typeahead
-        listaRotas.push(route_name);
+        html = "<option value='" + route.route_id + "'>" +
+                  routeName +
+                "</option>";
 
-        //if ((route_name.search("Metr") > 0) || (route_name.search("metr") != -1)){
-        //console.log("é metro ->" + route_name);
-        //}
+        $("#routes").append(html);
+
+        // Places the routes in a list, to be used in typeahead
+        listaRotas.push(routeName);
+
     }
-
-
 };
 
 // Draws a line between the points of shape
