@@ -60,3 +60,15 @@ padding-right: 30px;
 .example {
   color: #bdc3c7;
 }
+
+/* Draw Stops Popup */
+.stop-popup {
+  margin: 0;
+  padding: 0;
+}
+
+.stop-name {
+  background-color: #3498db;
+  color: white;
+  padding: 1px;
+}

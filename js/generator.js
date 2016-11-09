@@ -40,7 +40,7 @@ var listaRotas = [];
 /* Metodos da classe Generator */
 
 // Draws a stop on the map, with the position and agency name.
-Generator.drawAgencyStop = function (data) {
+Generator.drawAgencyStop = function(data) {
 
     obj = JSON.parse(data);
 
@@ -93,78 +93,50 @@ Generator.drawShapes = function(data) {
     var obj = JSON.parse(data);
 
     // Check if shape points exists
-    if(!(obj[0] === undefined || obj[0] === null)){
-      var latlngs = Array();
+    if (!(obj[0] === undefined || obj[0] === null)) {
+        var latlngs = Array();
 
-      for (var y = 0; y < obj[0].length; y++) {
-          var marker = L.marker([obj[0][y].shape_pt_lat, obj[0][y].shape_pt_lon], {
-              icon: greenIcon
-          });
-          //markers.addLayer(marker);
-          latlngs.push(marker.getLatLng());
-      }
+        for (var y = 0; y < obj[0].length; y++) {
+            var marker = L.marker([obj[0][y].shape_pt_lat, obj[0][y].shape_pt_lon], {
+                icon: greenIcon
+            });
+            //markers.addLayer(marker);
+            latlngs.push(marker.getLatLng());
+        }
 
-      //map.addLayer(markers);
+        //map.addLayer(markers);
 
-      // create a polyline from an arrays of LatLng points
-      var polyline = L.polyline(latlngs, {
-          color: '#3498db'
-      }).addTo(map);
-      markers.addLayer(polyline);
-      map.addLayer(markers);
-      // zoom the map to the polyline
-      map.fitBounds(polyline.getBounds());
-      map.setZoom(10);
+        // create a polyline from an arrays of LatLng points
+        var polyline = L.polyline(latlngs, {
+            color: '#3498db'
+        }).addTo(map);
+        markers.addLayer(polyline);
+        map.addLayer(markers);
+        // zoom the map to the polyline
+        map.fitBounds(polyline.getBounds());
+        map.setZoom(10);
 
     }
 };
 
-Generator.drawStopsNear = function(data) {
+/* Draw a list of stops on map */
+Generator.drawStops = function(stopsData) {
 
-    obj = JSON.parse(data);
-    /*
-    for (var y = 0; y < 1; y++) {
-      var marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {icon: redMarker}).bindPopup(Generator.drawStopsPopup(obj[y].stop_id, obj[y].stop_name, obj[y].stop_desc));
-      markers.addLayer(marker);
+    var stopList, stopLength, stop, marker;
 
-    }
+    stopList = JSON.parse(stopsData);
+    stopLength = stopList.length;
 
-    map.addLayer(markers);
-    */
-    pontoEmbarque = obj[0].stop_name;
-    settings.boarding_stop = obj[0].stop_name;
-    boarding_stop_id = obj[0].stop_id;
+    for (var i = 0; i < stopLength; i++) {
 
-    var url = "http://127.0.0.1:8000/api/routesbystop?agency_id=SPTRANS&stop_id=" + obj[0].stop_id;
-    console.log(url);
-    getApi(url, test);
-};
+      stop = stopList[i];
 
-function test(data) {
-    obj = JSON.parse(data);
-    console.log(obj);
-    //var url = "http://127.0.0.1:8124/api/shapes?agency_key=county-connection&route_id=" + obj[0].route_id + "&direction_id=0";
-    //get(url, "shapes");
-    url = "http://127.0.0.1:8000/api/stops?agency_key=SPTRANS&route_id=" + obj[0].route_id + "&direction_id=0";
-    console.log(url);
-    //get(url, "stops");
-    getApi(url, Generator.drawStops);
-}
-
-// Draw stops on map
-Generator.drawStops = function(data) {
-
-    var marker;
-    var stop_name;
-    var stop_id;
-
-    obj = JSON.parse(data);
-
-    for (var y = 0; y < obj.length; y++) {
-
-      marker = L.marker([obj[y].stop_lat, obj[y].stop_lon], {
+      marker = L.marker([stop.stop_lat, stop.stop_lon], {
           icon: redMarker
-      }).bindPopup(Generator.drawStopsPopup(obj[y].stop_id, obj[y].stop_name, obj[y].stop_desc));
+      })
+      .bindPopup(Generator.drawStopsPopup(stop.stop_id,
+                                          stop.stop_name,
+                                          stop.stop_desc));
 
       markers.addLayer(marker);
 
@@ -174,18 +146,16 @@ Generator.drawStops = function(data) {
 
 };
 
-// Draws the pop-up stopping points on the map
-Generator.drawStopsPopup = function(stop_id, stop_name, stops_desc) {
-    var html = "";
+/* Draws the pop-up stopping points on the map */
+Generator.drawStopsPopup = function(stopId, stopName, stopsDesc) {
 
-    html += "<div style='margin: 0px; padding: 0px;'>" +
-        "<h3 style='background-color: #3498db; color: white; padding: 1px;'>" + stop_name + "</h3>" +
-        "<p>" + stops_desc + "</p></div>";
+    var html = '';
+
+    html += "<div class='stop-popup'>" +
+        "<h3 class='stop-name'>" + stopName + "</h3>" +
+        "<p>" + stopId + " - " + stopsDesc + "</p>" +
+        "</div>";
 
     return html;
 
-};
-
-Generator.print = function() {
-  console.log("Print");
 };
