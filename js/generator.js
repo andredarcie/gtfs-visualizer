@@ -1,27 +1,30 @@
-pontoEmbarque = "";
-// Iniciando o mapa
-var map = L.map('map', {
-    zoomControl: false
-}).setView([-21.786, -46.566], 15);
-
-L.control.zoom({
-    position: 'bottomright'
-}).addTo(map);
-
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; ' +
-      '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-// Criando camada para desenhar no mapa
-var markers = new L.FeatureGroup();
-
-// Generator que desenha no mapa e html
-var Generator = {};
-
 var listaRotas = [];
+var Generator = {};
+var markers, map;
 
-/* Metodos da classe Generator */
+$(function() {
+    Generator.drawMap(-21.786, -46.566, 15);
+});
+
+/* Draw map tiles and buttons */
+Generator.drawMap = function(lat, lng, zoom) {
+
+  map = L.map('map', {
+      zoomControl: false
+  }).setView([lat, lng], zoom);
+
+  L.control.zoom({
+      position: 'bottomright'
+  }).addTo(map);
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; ' +
+        '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  markers = new L.FeatureGroup();
+
+};
 
 // Draws a stop on the map, with the position and agency name.
 Generator.drawAgencyStop = function(data) {
