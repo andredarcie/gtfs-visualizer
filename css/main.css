@@ -28,7 +28,6 @@ padding-right: 30px;
   left:0;
   top:0;
   z-index: 1000;
-  padding: 0;
 }
 
 #id-for-the-button{
@@ -79,7 +78,7 @@ padding-right: 30px;
   text-align: center;
 }
 
-p.agency-desc {
+.agency-desc {
   padding: 0;
   margin: 0;
   text-align: center;
