@@ -135,7 +135,7 @@ Plantrip.criaTrajeto = function() {
         "<tr> <td> Caminhe até a " + pontoChegada + " </td> </tr>" +
         "<tr> <td> Tarifa Total: R$ " + tarifaTotal + " </td> </tr>";
      */
-     
+
      saida = "<tr><th>TRAJETO</th></tr>" +
          "<tr> <td> 1. Caminhe até o ponto: <br> <span style='color: #2ecc71; font-weight: bold;'> <i class='fa fa-map-marker' aria-hidden='true'></i> " + boarding_stop + "</span>. </td> </tr>" +
          "<tr> <td> 2. Pegue a Linha: " + nomeLinha + " </td> </tr>";
@@ -163,7 +163,7 @@ Plantrip.getRotasProximas = function(lat, long) {
             var saida = "<tr><th>Melhores Linhas</th></tr>";
 
             for (var i = 0; i < 5; i++) {
-                var route_long_name = (typeof obj[i].route_long_name == "undefined") ? "" : obj[i].route_long_name;
+                var route_long_name = (typeof obj[i].route_long_name === "undefined") ? "" : obj[i].route_long_name;
                 saida += "<tr><td><span style='font-size: 12px'>" + obj[i].route_id + " <i class='fa fa-external-link' aria-hidden='true'></i> </span><p>" + route_long_name + "</p></td></tr>";
                 //console.log("> " + obj[i].route_long_name);
             }
