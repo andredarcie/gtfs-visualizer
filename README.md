@@ -3,7 +3,7 @@
 *Data viewer for gtfs* [![CodeClimate](https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer/badges/gpa.svg)]
 (https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer) [![IssueCount](https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer/badges/issue_count.svg)](https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer)
 
-:bus: Library responsible for generating HTML data based on the GTFS format.
+:bus: Library responsible for generating HTML data based on the GTFS format. Depends on [this](https://github.com/AndreNDarcie/node-gtfs-api) API.
 
 ## GTFS Overview
 
@@ -18,27 +18,28 @@
     git clone git@github.com:AndreNDarcie/gtfs-visualizer.git
 
     cd gtfs-visualizer
-    
-  Gulp task runner
-    
+
+  Start the database with agency's data:
+
+    mongod
+
+  Start the [node gtfs api](https://github.com/AndreNDarcie/node-gtfs-api):
+
+    node index.js
+
+  Configure the js/settings.js file
+
+  Open the index.html in your browser
+
+  (Optional) Gulp task runner
+
     npm install
-    
+
     // Run gulp:
     gulp
-    
+
     // To run individual tasks:
     gulp <task> <othertask>
-  
-  Include the following javascript in your html
-  ```html
-  <!-- Custom Icons for Gtfs Visualizer  -->
-  <script src="js/icons.js"></script>
-
-  <!-- Gtfs Visualizer  -->
-  <script src="js/generator.js"></script>
-  <script src="js/get-api.js"></script>
-  <script src="js/main.js"></script>
-  ```
 
   This example depends on [Bootstrap](http://getbootstrap.com/), [jQuery](http://jquery.com/),
   [Leaflet](http://leafletjs.com/), [typeahead](https://twitter.github.io/typeahead.js/) and [Gulp](http://gulpjs.com/).

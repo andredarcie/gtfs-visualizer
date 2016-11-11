@@ -1,6 +1,6 @@
-var listaRotas = [];
 var Generator = {};
 var markers, map;
+var listaRotas = [];
 
 $(function() {
     Generator.drawMap(-21.786, -46.566, 15);
