@@ -27,7 +27,7 @@
 
     node index.js
 
-  Configure the js/settings.js file
+  Configure the `js/settings.js` file
 
   Open the index.html in your browser
 
