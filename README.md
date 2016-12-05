@@ -15,7 +15,7 @@
 
   Clone from github:
 
-    git clone git@github.com:AndreNDarcie/gtfs-visualizer.git
+    git clone git@github.com:andredarcie/gtfs-visualizer.git
 
     cd gtfs-visualizer
 
