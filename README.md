@@ -3,7 +3,7 @@
 *Data viewer for gtfs* [![CodeClimate](https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer/badges/gpa.svg)]
 (https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer) [![IssueCount](https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer/badges/issue_count.svg)](https://codeclimate.com/github/AndreNDarcie/gtfs-visualizer)
 
-:bus: Library responsible for generating HTML data based on the GTFS format. Depends on [this](https://github.com/AndreNDarcie/node-gtfs-api) API.
+:bus: Library responsible for generating HTML data based on the GTFS format. Depends on [this](https://github.com/andredarcie/node-gtfs-api) API.
 
 ## GTFS Overview
 
