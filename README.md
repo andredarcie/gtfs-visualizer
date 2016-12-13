@@ -23,7 +23,7 @@
 
     mongod
 
-  Start the [node gtfs api](https://github.com/AndreNDarcie/node-gtfs-api):
+  Start the [node gtfs api](https://github.com/andredarcie/node-gtfs-api):
 
     node index.js
 
